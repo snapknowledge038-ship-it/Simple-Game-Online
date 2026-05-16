@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-View Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f9;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        p {
+            color: #666;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Multi-View Website Opener</h2>
+    <p>ඔබට අවශ්‍ය වෙබ් අඩවියේ Link එක පහතින් ඇතුළත් කර Button එක Click කරන්න.</p>
+    
+    <!-- Link එක ඇතුලත් කරන තැන -->
+    <input type="text" id="webLink" placeholder="https://example.com">
+    <button onclick="openTabs()">Open 20 Screens</button>
+
+    <script>
+        function openTabs() {
+            var url = document.getElementById("webLink").value;
+            
+            // Link එකක් ඇතුලත් කරලා නැත්නම් alert එකක් දෙනවා
+            if (url == "") {
+                alert("කරුණාකර මුලින්ම Link එකක් ඇතුළත් කරන්න!");
+                return;
+            }
+            
+            // http:// හෝ https:// නැත්නම් ඒක එකතු කරනවා
+            if (!url.match(/^https?:\/\//i)) {
+                url = 'https://' + url;
+            }
+
+            // එකවර Tabs 20 ක් open කරන loop එක
+            for (var i = 0; i < 20; i++) {
+                window.open(url, '_blank');
+            }
+        }
+    </script>
+
+</body>
+</html>
